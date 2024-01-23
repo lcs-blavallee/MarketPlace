@@ -8,7 +8,18 @@
 import SwiftUI
 
 struct SliderView: View {
-    let images = ["car1", "car2", "car3", "car4","car5","car6", "car7"]
+    
+    let image1: String
+    let image2: String
+    let image3: String
+    let image4: String
+    let image5: String
+    let image6: String
+    let image7: String
+    
+    var images: [String] {
+            [image1, image2, image3, image4, image5, image6, image7]
+        }
     var body: some View {
         VStack{
             TabView{
@@ -25,5 +36,5 @@ struct SliderView: View {
 }
 
 #Preview {
-    SliderView()
+    SliderView(image1: "car1", image2: "car2", image3: "car3", image4: "car4", image5: "car5", image6: "car6", image7: "car7")
 }

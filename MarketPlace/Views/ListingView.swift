@@ -15,7 +15,7 @@ struct ListingView: View {
         NavigationStack {
             //ScrollView{
                 VStack {
-                    SliderView()
+                    SliderView(image1: "car1", image2: "car2", image3: "car3", image4: "car4", image5: "car5", image6: "car6", image7: "car7")
                         .padding(.bottom)
                     ItemDescriptionView(listingName: "2014 Scion fr-s", price: 13999, timeListedAgo: 5, location: "Toronto, ON", sellersDescription: ("""
                                 EXTREMELY RARE 1 of 2000 MONOGRAM EDITION.

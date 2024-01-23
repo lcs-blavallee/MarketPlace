@@ -39,7 +39,9 @@ struct MarketPlaceView: View {
                     HStack {
                     }
                 }
+                .padding(.all)
             }
+            .navigationTitle("Spizzy Marketplace")
         }
     }
 }
