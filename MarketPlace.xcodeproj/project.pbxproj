@@ -15,6 +15,8 @@
 		1A5D14932B5F589500DE9749 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14922B5F589500DE9749 /* SliderView.swift */; };
 		1A5D14952B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */; };
 		1A5D14972B5F607900DE9749 /* MarketplaceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14962B5F607900DE9749 /* MarketplaceScrollView.swift */; };
+		1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14992B5F617700DE9749 /* Listings.swift */; };
+		1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		1A5D14922B5F589500DE9749 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
 		1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceScrollHelperView.swift; sourceTree = "<group>"; };
 		1A5D14962B5F607900DE9749 /* MarketplaceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceScrollView.swift; sourceTree = "<group>"; };
+		1A5D14992B5F617700DE9749 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
+		1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 		1A5D148F2B5F567200DE9749 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1A5D14992B5F617700DE9749 /* Listings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 			children = (
 				1A5D14922B5F589500DE9749 /* SliderView.swift */,
 				1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */,
+				1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */,
 			);
 			path = "Helper Views";
 			sourceTree = "<group>";
@@ -173,7 +179,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */,
 				1A5D147F2B5F562C00DE9749 /* MarketPlaceApp.swift in Sources */,
+				1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */,
 				1A5D14932B5F589500DE9749 /* SliderView.swift in Sources */,
 				1A5D14952B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift in Sources */,
 				1A5D148D2B5F564F00DE9749 /* ListingView.swift in Sources */,
