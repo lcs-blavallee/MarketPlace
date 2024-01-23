@@ -30,29 +30,29 @@ struct MarketPlaceView: View {
                             }
                         )
                     }
-                        HStack(spacing: 8) {
-                            NavigationLink(
-                                destination: LandView(listings: listing3),
-                                label: {
-                                    MarketplaceScrollHelperView(thumbnail: "land1", price: 529000, listingName: "50+ Acres For Sale", location: "Kawartha Lakes, ON", distance: 43)
-                                        .frame(maxWidth: .infinity)
-                                }
-                            )
-                            
-                            NavigationLink(
-                                destination: PcView(listings: listing4),
-                                label: {
-                                    MarketplaceScrollHelperView(thumbnail: "pc1", price: 850, listingName: "Gamer Supreme Liquid Cool Gaming PC, Intel Core i7-9700K 3.6Ghz", location: "Ajax, ON", distance: 105)
-                                        .frame(maxWidth: .infinity)
-                                }
-                            )
-                        }
+                    HStack(spacing: 8) {
+                        NavigationLink(
+                            destination: LandView(listings: listing3),
+                            label: {
+                                MarketplaceScrollHelperView(thumbnail: "land1", price: 529000, listingName: "50+ Acres For Sale", location: "Kawartha Lakes, ON", distance: 43)
+                                    .frame(maxWidth: .infinity)
+                            }
+                        )
+                        
+                        NavigationLink(
+                            destination: PcView(listings: listing4),
+                            label: {
+                                MarketplaceScrollHelperView(thumbnail: "pc1", price: 850, listingName: "Gamer Supreme Liquid Cool Gaming PC, Intel Core i7-9700K 3.6Ghz", location: "Ajax, ON", distance: 105)
+                                    .frame(maxWidth: .infinity)
+                            }
+                        )
                     }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 8)
                 }
-                .navigationTitle("Marketplace")
+                .padding(.horizontal, 8)
+                .padding(.vertical, 8)
             }
+            .navigationTitle("Marketplace")
+        }
     }
 }
 

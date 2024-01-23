@@ -21,21 +21,21 @@ struct TruckView: View {
                     
                     ItemDescriptionView(listingName: "1996 Dodge ram 1500 regular cab", price: 3000, timeListedAgo: 14, location: "Kawartha Lakes, ON", sellersDescription: ("""
                             1996 dodge ram 1500 5.9 magnum 2WD Indy pace truck.
-
+                            
                             326,000kms (daily vehicle)
-
+                            
                             Runs drives stops great
-
+                            
                             - Many new parts in front end, new tie rods new struts new wheel bearings and a few more things
-
+                            
                             - brakes all done last year
-
+                            
                             - Brand new cowel hood
-
+                            
                             - needs little body work and paint
-
+                            
                             Solid frame on truck, motor and trans are strong they have no issues shifts great.
-
+                            
                             3000 obo no trades
                             """))
                 }

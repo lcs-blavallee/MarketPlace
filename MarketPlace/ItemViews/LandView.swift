@@ -22,12 +22,12 @@ struct LandView: View {
                     ItemDescriptionView(listingName: "50+ Acres For Sale", price: 529000, timeListedAgo: 2, location: "Kawartha Lakes, ON", sellersDescription: ("""
                             0 Ballyduff Rd., Kawartha Lakes
                             Asking: $529,000
-
+                            
                             Excellent Opportunity To Own Over 50+ Acres of Vacant Land. This Property is located At The Border Of Desirable Kawartha Lakes/ Scugog Township and Offers All Season Recreational Enjoyment. Offering Beautiful Open Space, Tranquility, Privacy, And Potential Opportunity In A Great Location. Mixture Of Tree And Bush. Combination of Hardwood and Soft wood, No Driveway On Property. Easy Commute To Toronto And A Short Drive To Lindsay & Port Perry.
-
+                            
                             Contact me directly for more information
                             Jennifer Park Sales Representative- Re/max Jazz Inc. Brokerage
-
+                            
                             Not intended to solicit those currently under contract
                             """))
                 }
