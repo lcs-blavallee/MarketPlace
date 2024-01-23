@@ -17,6 +17,7 @@
 		1A5D14972B5F607900DE9749 /* MarketplaceScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14962B5F607900DE9749 /* MarketplaceScrollView.swift */; };
 		1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14992B5F617700DE9749 /* Listings.swift */; };
 		1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */; };
+		1A5D149E2B5F7C7200DE9749 /* TruckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D149D2B5F7C7200DE9749 /* TruckView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		1A5D14962B5F607900DE9749 /* MarketplaceScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceScrollView.swift; sourceTree = "<group>"; };
 		1A5D14992B5F617700DE9749 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionView.swift; sourceTree = "<group>"; };
+		1A5D149D2B5F7C7200DE9749 /* TruckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1A5D148C2B5F564F00DE9749 /* ListingView.swift */,
+				1A5D149D2B5F7C7200DE9749 /* TruckView.swift */,
 				1A5D14962B5F607900DE9749 /* MarketplaceScrollView.swift */,
 				1A5D14902B5F56B300DE9749 /* MarketPlaceView.swift */,
 			);
@@ -183,6 +186,7 @@
 				1A5D147F2B5F562C00DE9749 /* MarketPlaceApp.swift in Sources */,
 				1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */,
 				1A5D14932B5F589500DE9749 /* SliderView.swift in Sources */,
+				1A5D149E2B5F7C7200DE9749 /* TruckView.swift in Sources */,
 				1A5D14952B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift in Sources */,
 				1A5D148D2B5F564F00DE9749 /* ListingView.swift in Sources */,
 				1A5D14912B5F56B300DE9749 /* MarketPlaceView.swift in Sources */,
