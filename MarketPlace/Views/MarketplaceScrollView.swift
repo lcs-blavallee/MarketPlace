@@ -1,5 +1,5 @@
 //
-//  ListingScrollView.swift
+//  MarketplaceScrollView.swift
 //  MarketPlace
 //
 //  Created by Benjamin Lavallee on 2024-01-22.
@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct MarketplaceScrollView: View {
-    
-    let 
-    
     var body: some View {
-        Text("Hello World")
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
