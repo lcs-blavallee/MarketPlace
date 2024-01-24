@@ -9,34 +9,30 @@ import SwiftUI
 
 struct MarketplaceScrollHelperView: View {
     
-    var thumbnail: String
-    var price: Int
-    var listingName: String
-    let location: String
-    let distance: Int
+    let listing: Listing
     
     var body: some View {
         VStack (alignment: .leading) {
-            Image(thumbnail)
+            Image(listing.thumbnail)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(height: 200) // Set a fixed height (adjust as needed)
                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
             
-            Text("$\(price)")
+            Text("$\(listing.price)")
                 .foregroundStyle(.black)
                 .lineLimit(1)
                 .bold()
             
-            Text(listingName)
+            Text(listing.name)
                 .foregroundStyle(.black)
                 .lineLimit(1)
             
-            Text(location)
+            Text(listing.location)
                 .foregroundStyle(.gray)
                 .lineLimit(1)
             
-            Text("\(distance) km")
+            Text("\(listing.distance) km")
                 .foregroundStyle(.gray)
                 .lineLimit(1)
             
@@ -50,5 +46,5 @@ struct MarketplaceScrollHelperView: View {
 
 
 #Preview {
-    MarketplaceScrollHelperView(thumbnail: "car1", price: 13999, listingName: "2014 Scion fr-s", location: "Toronto, ON", distance: 136)
+    MarketplaceScrollHelperView(listing: listing1)
 }
