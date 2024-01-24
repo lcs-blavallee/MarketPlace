@@ -69,20 +69,36 @@ let listing1 = Listing(
                             """
 )
 let listing2 = Listing(
-    thumbnail: "",
+    thumbnail: "bluecar1",
     price: 3000,
-    name: "",
-    location: "",
-    timeListedAgo: 14,
-    distance: 60,
-    image1: "",
-    image2: "",
-    image3: "",
-    image4: "",
-    image5: "",
-    image6: "",
-    image7: "",
-    sellersDescription: ""
+    name: "2011 Subaru impreza",
+    location: "Kawartha Lakes, ON",
+    timeListedAgo: 5,
+    distance: 36,
+    image1: "bluecar1",
+    image2: "bluecar2",
+    image3: "bluecar3",
+    image4: "bluecar4",
+    image5: "bluecar5",
+    image6: "bluecar6",
+    image7: "bluecar7",
+    sellersDescription: """
+    Price is obo and no trades.. Selling for a buddy his beautiful built wrx, this car has 176k on the body and the engine was fully rebuilt at 155k by eci engines with paperwork to prove.
+    Engine was rebuilt with
+    wiseco pistons and rods
+    Arp head studs with grimspeed head gaskets
+    relocated oil sump
+    brand new vf52
+    Aem intake
+    Gfb blow off valve
+    Car had a perrin catted downpipe that had been gutted paired with a magnaflow cat back.
+    Car was ecutek tuned on dyno by neetronics made just around 315awhp with plenty of room to go more.
+
+    Car is lowered on tein coils and also comes with a brand new set of winters on white wheels(in pics)
+    Summer wheels or superspeeds wrapped in firehawk 500s
+    Does have two minor flaws front bumper is cracked and there is a little spot on the drivers dog leg that has some rust but no holes and no other rust any where on the car
+    this car pulls hard and sounds amazing don't miss out to own this beautiful car for a fraction of the price it would cost you to build one..
+    """
 )
 let listing3 = Listing(
     thumbnail: "land1",
