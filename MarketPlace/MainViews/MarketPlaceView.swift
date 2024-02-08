@@ -9,58 +9,34 @@ import SwiftUI
 
 struct MarketPlaceView: View {
     
-    let listing: Listing
     @State private var searchText = ""
+    
+    // Define the columns for your grid
+    private var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
     var body: some View {
         NavigationStack {
-            ScrollView{
-                VStack{
-                    HStack(spacing: 8) {
-                        NavigationLink(
-                            destination: ItemView(listing: listing1),
-                            label: {
-                                MarketplaceScrollHelperView(listing: listing1)
-                                    .frame(maxWidth: .infinity)
-                            }
-                        )
-                        
-                        NavigationLink(
-                            destination: ItemView(listing: listing2),
-                            label: {
-                                MarketplaceScrollHelperView(listing: listing2)
-                                    .frame(maxWidth: .infinity)
-                            }
-                        )
-                    }
-                    HStack(spacing: 8) {
-                        NavigationLink(
-                            destination: ItemView(listing: listing3),
-                            label: {
-                                MarketplaceScrollHelperView(listing: listing3)
-                                    .frame(maxWidth: .infinity)
-                            }
-                        )
-                        
-                        NavigationLink(
-                            destination: ItemView(listing: listing4),
-                            label: {
-                                MarketplaceScrollHelperView(listing: listing4)
-                                    .frame(maxWidth: .infinity)
-                            }
-                        )
+            ScrollView {
+                // Use LazyVGrid to create a grid layout
+                LazyVGrid(columns: columns, spacing: 16) {
+                    ForEach(allListings, id: \.self) { listing in
+                        NavigationLink(destination: ItemView(listing: listing)) {
+                            MarketplaceScrollHelperView(listing: listing)
+                                .frame(maxWidth: .infinity) // This will make each item take up as much space as possible
+                        }
                     }
                 }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 8)
+                .padding(.horizontal)
             }
             .navigationTitle("Marketplace")
+            .searchable(text: $searchText, prompt: "Find a listing")
         }
-        .searchable(text: $searchText, prompt: "Find a listing")
     }
 }
 
-
-#Preview {
-    MarketPlaceView(listing: listing1)
+// Assuming you have a separate file for PreviewProvider
+struct MarketPlaceView_Previews: PreviewProvider {
+    static var previews: some View {
+        MarketPlaceView()
+    }
 }

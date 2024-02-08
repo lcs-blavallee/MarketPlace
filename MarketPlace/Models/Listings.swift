@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Listing {
+struct Listing: Hashable {
     
     var thumbnail: String
     var price: Int

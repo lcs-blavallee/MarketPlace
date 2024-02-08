@@ -40,7 +40,6 @@ struct MarketplaceScrollHelperView: View {
             Spacer() // Add a Spacer to allow the image to stretch
         }
         .padding() // Add padding as needed
-        .frame(maxWidth: .infinity)
     }
 }
 
