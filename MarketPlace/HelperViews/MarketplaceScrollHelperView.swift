@@ -12,12 +12,13 @@ struct MarketplaceScrollHelperView: View {
     let listing: Listing
     
     var body: some View {
-        VStack (alignment: .leading) {
+        VStack (alignment: .leading, spacing: 10) {
             Image(listing.thumbnail)
                 .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 200) // Set a fixed height (adjust as needed)
-                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                .scaledToFill() // This will fill the frame; part of the image might be clipped.
+                .frame(width: 200, height: 200) // Set both fixed width and height
+                .clipped() // This will clip off the parts of the image that overflow the frame
+                .cornerRadius(10) // You can adjust corner radius as needed
             
             Text("$\(listing.price)")
                 .foregroundStyle(.black)

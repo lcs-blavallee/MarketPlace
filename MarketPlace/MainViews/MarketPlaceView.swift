@@ -14,7 +14,7 @@ struct MarketPlaceView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView{
                 VStack{
                     HStack(spacing: 8) {
                         NavigationLink(

@@ -8,6 +8,7 @@
 import Foundation
 
 struct Listing {
+    
     var thumbnail: String
     var price: Int
     var name: String
@@ -155,3 +156,5 @@ Upgrades:
 ==> Added a 500GB SSD Hard Drive.
 """
 )
+
+let allListings = [listing1, listing2, listing3, listing4]
