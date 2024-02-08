@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct MarketPlaceView: View {
-    
     @State private var searchText = ""
     
     // Define the columns for your grid
     private var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
+    private var filteredListings: [Listing] {
+        if searchText.isEmpty {
+            return allListings
+        } else {
+            return allListings.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+        }
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
-                // Use LazyVGrid to create a grid layout
                 LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(allListings, id: \.self) { listing in
+                    ForEach(filteredListings, id: \.self) { listing in
                         NavigationLink(destination: ItemView(listing: listing)) {
                             MarketplaceScrollHelperView(listing: listing)
-                                .frame(maxWidth: .infinity) // This will make each item take up as much space as possible
+                                .frame(maxWidth: .infinity)
                         }
+                        // Add a fade transition with animation for each grid item
+                        .transition(AnyTransition.opacity.animation(.easeInOut(duration: 0.25)))
                     }
                 }
                 .padding(.horizontal)
@@ -34,9 +42,9 @@ struct MarketPlaceView: View {
     }
 }
 
-// Assuming you have a separate file for PreviewProvider
-struct MarketPlaceView_Previews: PreviewProvider {
-    static var previews: some View {
-        MarketPlaceView()
-    }
+#Preview {
+    MarketPlaceView()
 }
+
+
+

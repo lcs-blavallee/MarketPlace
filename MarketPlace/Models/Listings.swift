@@ -7,21 +7,15 @@
 
 import Foundation
 
-struct Listing: Hashable {
-    
+struct Listing: Identifiable, Hashable {
+    let id: UUID = UUID() // Add an id property
     var thumbnail: String
     var price: Int
     var name: String
     let location: String
     var timeListedAgo: Int
     let distance: Int
-    let image1: String
-    let image2: String
-    let image3: String
-    let image4: String
-    let image5: String
-    let image6: String
-    let image7: String
+    var images: [String] // Dynamic array of images
     let sellersDescription: String
 }
 
@@ -32,13 +26,7 @@ let listing1 = Listing(
     location: "Toronto, ON",
     timeListedAgo: 5,
     distance: 136,
-    image1: "car1",
-    image2: "car2",
-    image3: "car3",
-    image4: "car4",
-    image5: "car5",
-    image6: "car6",
-    image7: "car7",
+    images: ["car1", "car2", "car3", "car4", "car5", "car6", "car7"],
     sellersDescription: """
                             EXTREMELY RARE 1 of 2000 MONOGRAM EDITION.
                             
@@ -76,13 +64,7 @@ let listing2 = Listing(
     location: "Kawartha Lakes, ON",
     timeListedAgo: 5,
     distance: 36,
-    image1: "bluecar1",
-    image2: "bluecar2",
-    image3: "bluecar3",
-    image4: "bluecar4",
-    image5: "bluecar5",
-    image6: "bluecar6",
-    image7: "bluecar7",
+    images: ["bluecar1", "bluecar2", "bluecar3", "bluecar4", "bluecar5", "bluecar6", "bluecar7"],
     sellersDescription: """
     Price is obo and no trades.. Selling for a buddy his beautiful built wrx, this car has 176k on the body and the engine was fully rebuilt at 155k by eci engines with paperwork to prove.
     Engine was rebuilt with
@@ -108,13 +90,7 @@ let listing3 = Listing(
     location: "Kawartha Lakes, ON",
     timeListedAgo: 2,
     distance: 43,
-    image1: "land1",
-    image2: "land2",
-    image3: "land3",
-    image4: "land4",
-    image5: "land5",
-    image6: "land6",
-    image7: "land7",
+    images: ["land1", "land2", "land3", "land4", "land5", "land6", "land7"],
     sellersDescription: """
 0 Ballyduff Rd., Kawartha Lakes
 Asking: $529,000
@@ -134,13 +110,7 @@ let listing4 = Listing(
     location: "Ajax, ON",
     timeListedAgo: 6,
     distance: 105,
-    image1: "pc1",
-    image2: "pc2",
-    image3: "pc3",
-    image4: "pc4",
-    image5: "pc5",
-    image6: "pc6",
-    image7: "pc7",
+    images: ["pc1", "pc2", "pc3", "pc4", "pc5", "pc6", "pc7"],
     sellersDescription: """
 System: Intel Core i7-9700K 3.6GHz 8-Core | Intel Z390 Chipset | 32GB DDR4 | 1TB PCI-E NVMe SSD | Genuine Windows 10 Home 64-bit
 
