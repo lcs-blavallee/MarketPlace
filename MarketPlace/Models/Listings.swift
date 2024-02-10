@@ -7,17 +7,27 @@
 
 import Foundation
 
+enum DisplayCategory: String, CaseIterable {
+    case all = "All"
+    case vehicle = "Vehicles"
+    case clothing = "Clothing"
+    case electronics = "Electronics"
+}
+
 enum ListingCategory: String, CaseIterable, Codable {
-    case car
-    case truck
-    case land
-    case electronics
-    case house
-    case furniture
-    case clothing
-    case toys
-    case games
-    case computer
+    case all = "All"
+    case vehicle = "Vehicles"
+    case clothing = "Clothing"
+    case electronics = "Electronics"
+    case land = "Land"
+    case car = "Cars"
+    case truck = "Trucks"
+    case house = "House's"
+    case furniture = "Furniture"
+    case toys = "Toys"
+    case games = "Games"
+    case computer = "Computers"
+    // Add other categories as needed
 }
 
 protocol IdentifiableItem {
@@ -31,7 +41,7 @@ protocol IdentifiableItem {
     var category: ListingCategory { get set }
 }
 
-struct Listing: IdentifiableItem, Hashable {
+struct Listing: Identifiable, Hashable {
     let id: UUID
     var thumbnail: String
     var price: Decimal
@@ -41,7 +51,9 @@ struct Listing: IdentifiableItem, Hashable {
     var distance: Int
     var images: [String]
     var sellersDescription: String
-    var category: ListingCategory
+    var categories: [ListingCategory]
+
+   
 
     // Computed property to calculate time listed ago based on listingDate
     var timeListedAgo: String {
@@ -50,7 +62,7 @@ struct Listing: IdentifiableItem, Hashable {
         return formatter.localizedString(for: listingDate, relativeTo: Date())
     }
 
-    init(thumbnail: String, price: Double, name: String, location: String, distance: Int, images: [String], sellersDescription: String, category: ListingCategory) {
+    init(thumbnail: String, price: Double, name: String, location: String, distance: Int, images: [String], sellersDescription: String, categories: [ListingCategory]) {
         self.id = UUID()
         self.thumbnail = thumbnail
         self.price = Decimal(price)
@@ -60,7 +72,7 @@ struct Listing: IdentifiableItem, Hashable {
         self.distance = distance
         self.images = images
         self.sellersDescription = sellersDescription
-        self.category = category
+        self.categories = categories // Make sure this is an array of ListingCategory
     }
 }
 
@@ -104,7 +116,7 @@ let listing1 = Listing(
                             - Push Button Start
                             - Dual-zone automatic climate control
                             - Frameless Mirror
-                            """, category: .car
+                            """, categories: [.vehicle, .car]
 )
 let listing2 = Listing(
     thumbnail: "bluecar1",
@@ -129,7 +141,7 @@ let listing2 = Listing(
     Summer wheels or superspeeds wrapped in firehawk 500s
     Does have two minor flaws front bumper is cracked and there is a little spot on the drivers dog leg that has some rust but no holes and no other rust any where on the car
     this car pulls hard and sounds amazing don't miss out to own this beautiful car for a fraction of the price it would cost you to build one..
-    """, category: .car
+    """, categories: [.vehicle, .car]
 )
 let listing3 = Listing(
     thumbnail: "land1",
@@ -148,7 +160,7 @@ Contact me directly for more information
 Jennifer Park Sales Representative- Re/max Jazz Inc. Brokerage
 
 Not intended to solicit those currently under contract
-""", category: .land
+""", categories: [.land]
 )
 let listing4 = Listing(
     thumbnail: "pc1",
@@ -170,7 +182,7 @@ Upgrades:
 ==> Added Thermaltake 360mm liquid cooling system
 ==> Upgraded RAM from 16GB to 32GB
 ==> Added a 500GB SSD Hard Drive.
-""", category: .electronics
+""", categories: [.electronics, .computer]
 )
 
 let allListings = [listing1, listing2, listing3, listing4]
