@@ -17,7 +17,11 @@ struct MarketPlaceView: View {
         if searchText.isEmpty {
             return allListings
         } else {
-            return allListings.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            let lowercasedSearchText = searchText.lowercased()
+            return allListings.filter {
+                $0.name.lowercased().contains(lowercasedSearchText) ||
+                $0.category.rawValue.lowercased().contains(lowercasedSearchText)
+            }
         }
     }
     
@@ -38,9 +42,11 @@ struct MarketPlaceView: View {
             }
             .navigationTitle("Marketplace")
             .searchable(text: $searchText, prompt: "Find a listing")
+            // .disableAutocorrection(true) // Uncomment if you want to disable autocorrection
         }
     }
 }
+
 
 #Preview {
     MarketPlaceView()

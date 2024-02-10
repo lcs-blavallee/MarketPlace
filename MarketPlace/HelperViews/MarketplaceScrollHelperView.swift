@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MarketplaceScrollHelperView: View {
     let listing: Listing
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Image(listing.thumbnail)
@@ -19,28 +19,37 @@ struct MarketplaceScrollHelperView: View {
                 .clipped()
                 .cornerRadius(10)
             
-            Text("$\(listing.price)")
-                .foregroundStyle(.black)
+            Text(priceString(from: listing.price)) // Correctly calling the function
+                .foregroundColor(.black)
                 .bold()
                 .lineLimit(1)
-            
+
             Text(listing.name)
-                .foregroundStyle(.black)
+                .foregroundColor(.black)
                 .lineLimit(1)
-            
+
             Text(listing.location)
-                .foregroundStyle(.gray)
+                .foregroundColor(.gray)
                 .lineLimit(1)
-            
+
             Text("\(listing.distance) km")
-                .foregroundStyle(.gray)
+                .foregroundColor(.gray)
                 .lineLimit(1)
         }
-        // Apply padding only to the necessary sides
         .padding([.leading, .trailing, .top])
     }
-}
 
+    private func priceString(from price: Decimal) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current // or a specific locale if your app will support multiple regions
+        formatter.alwaysShowsDecimalSeparator = false
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2 // Show up to 2 decimal places only if there are cents
+        return formatter.string(from: price as NSDecimalNumber) ?? "$\(price)"
+    }
+
+}
 
 
 #Preview {

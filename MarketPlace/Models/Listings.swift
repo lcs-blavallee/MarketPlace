@@ -7,24 +7,73 @@
 
 import Foundation
 
-struct Listing: Identifiable, Hashable {
-    let id: UUID = UUID() // Add an id property
-    var thumbnail: String
-    var price: Int
-    var name: String
-    let location: String
-    var timeListedAgo: Int
-    let distance: Int
-    var images: [String] // Dynamic array of images
-    let sellersDescription: String
+enum ListingCategory: String, CaseIterable, Codable {
+    case car
+    case truck
+    case land
+    case electronics
+    case house
+    case furniture
+    case clothing
+    case toys
+    case games
+    case computer
 }
+
+protocol IdentifiableItem {
+    var id: UUID { get }
+    var name: String { get set }
+    var price: Decimal { get set }
+    var location: String { get set }
+    var listingDate: Date { get }
+    var images: [String] { get set }
+    var sellersDescription: String { get set }
+    var category: ListingCategory { get set }
+}
+
+struct Listing: IdentifiableItem, Hashable {
+    let id: UUID
+    var thumbnail: String
+    var price: Decimal
+    var name: String
+    var location: String
+    var listingDate: Date
+    var distance: Int
+    var images: [String]
+    var sellersDescription: String
+    var category: ListingCategory
+
+    // Computed property to calculate time listed ago based on listingDate
+    var timeListedAgo: String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: listingDate, relativeTo: Date())
+    }
+
+    init(thumbnail: String, price: Double, name: String, location: String, distance: Int, images: [String], sellersDescription: String, category: ListingCategory) {
+        self.id = UUID()
+        self.thumbnail = thumbnail
+        self.price = Decimal(price)
+        self.name = name
+        self.location = location
+        self.listingDate = Date()
+        self.distance = distance
+        self.images = images
+        self.sellersDescription = sellersDescription
+        self.category = category
+    }
+}
+
+// Then you can initialize your listings as before, now with the category included.
+
+
+
 
 let listing1 = Listing(
     thumbnail: "car1",
-    price: 13999,
+    price: 13999.00,
     name: "2014 Scion fr-s",
     location: "Toronto, ON",
-    timeListedAgo: 5,
     distance: 136,
     images: ["car1", "car2", "car3", "car4", "car5", "car6", "car7"],
     sellersDescription: """
@@ -55,14 +104,13 @@ let listing1 = Listing(
                             - Push Button Start
                             - Dual-zone automatic climate control
                             - Frameless Mirror
-                            """
+                            """, category: .car
 )
 let listing2 = Listing(
     thumbnail: "bluecar1",
-    price: 3000,
+    price: 3000.00,
     name: "2011 Subaru impreza",
     location: "Kawartha Lakes, ON",
-    timeListedAgo: 5,
     distance: 36,
     images: ["bluecar1", "bluecar2", "bluecar3", "bluecar4", "bluecar5", "bluecar6", "bluecar7"],
     sellersDescription: """
@@ -81,14 +129,13 @@ let listing2 = Listing(
     Summer wheels or superspeeds wrapped in firehawk 500s
     Does have two minor flaws front bumper is cracked and there is a little spot on the drivers dog leg that has some rust but no holes and no other rust any where on the car
     this car pulls hard and sounds amazing don't miss out to own this beautiful car for a fraction of the price it would cost you to build one..
-    """
+    """, category: .car
 )
 let listing3 = Listing(
     thumbnail: "land1",
-    price: 529000,
+    price: 529000.00,
     name: "50+ Acres For Sale",
     location: "Kawartha Lakes, ON",
-    timeListedAgo: 2,
     distance: 43,
     images: ["land1", "land2", "land3", "land4", "land5", "land6", "land7"],
     sellersDescription: """
@@ -101,14 +148,13 @@ Contact me directly for more information
 Jennifer Park Sales Representative- Re/max Jazz Inc. Brokerage
 
 Not intended to solicit those currently under contract
-"""
+""", category: .land
 )
 let listing4 = Listing(
     thumbnail: "pc1",
-    price: 850,
+    price: 850.00,
     name: "Gamer Supreme Liquid Cool Gaming PC, Intel Core i7-9700K 3.6Ghz",
     location: "Ajax, ON",
-    timeListedAgo: 6,
     distance: 105,
     images: ["pc1", "pc2", "pc3", "pc4", "pc5", "pc6", "pc7"],
     sellersDescription: """
@@ -124,7 +170,7 @@ Upgrades:
 ==> Added Thermaltake 360mm liquid cooling system
 ==> Upgraded RAM from 16GB to 32GB
 ==> Added a 500GB SSD Hard Drive.
-"""
+""", category: .electronics
 )
 
 let allListings = [listing1, listing2, listing3, listing4]
