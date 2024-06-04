@@ -68,6 +68,7 @@ struct MarketPlaceView: View {
             .searchable(text: $searchText, prompt: "Find a listing")
         }
     }
+    
 }
 
 

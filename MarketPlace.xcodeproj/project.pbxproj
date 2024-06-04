@@ -16,6 +16,13 @@
 		1A5D14952B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */; };
 		1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D14992B5F617700DE9749 /* Listings.swift */; };
 		1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */; };
+		1A760D812C0A53BE00B32A83 /* MarketPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A760D802C0A53BE00B32A83 /* MarketPlaceViewModel.swift */; };
+		1A760D842C0F4C3500B32A83 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D832C0F4C3500B32A83 /* Auth */; };
+		1A760D862C0F4C3500B32A83 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D852C0F4C3500B32A83 /* Functions */; };
+		1A760D882C0F4C3500B32A83 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D872C0F4C3500B32A83 /* PostgREST */; };
+		1A760D8A2C0F4C3500B32A83 /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D892C0F4C3500B32A83 /* Realtime */; };
+		1A760D8C2C0F4C3500B32A83 /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D8B2C0F4C3500B32A83 /* Storage */; };
+		1A760D8E2C0F4C3500B32A83 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = 1A760D8D2C0F4C3500B32A83 /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +36,7 @@
 		1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketplaceScrollHelperView.swift; sourceTree = "<group>"; };
 		1A5D14992B5F617700DE9749 /* Listings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listings.swift; sourceTree = "<group>"; };
 		1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDescriptionView.swift; sourceTree = "<group>"; };
+		1A760D802C0A53BE00B32A83 /* MarketPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +44,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A760D882C0F4C3500B32A83 /* PostgREST in Frameworks */,
+				1A760D862C0F4C3500B32A83 /* Functions in Frameworks */,
+				1A760D8E2C0F4C3500B32A83 /* Supabase in Frameworks */,
+				1A760D842C0F4C3500B32A83 /* Auth in Frameworks */,
+				1A760D8C2C0F4C3500B32A83 /* Storage in Frameworks */,
+				1A760D8A2C0F4C3500B32A83 /* Realtime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,9 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				1A5D147E2B5F562C00DE9749 /* MarketPlaceApp.swift */,
-				1A5D149F2B5F80BE00DE9749 /* ItemViews */,
 				1A5D14982B5F608000DE9749 /* HelperViews */,
 				1A5D148E2B5F566100DE9749 /* MainViews */,
+				1A760D7F2C0A537600B32A83 /* ViewModels */,
 				1A5D148F2B5F567200DE9749 /* Models */,
 				1A5D14822B5F562E00DE9749 /* Assets.xcassets */,
 				1A5D14842B5F562E00DE9749 /* Preview Content */,
@@ -99,6 +113,7 @@
 		1A5D14982B5F608000DE9749 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
+				1A5D148C2B5F564F00DE9749 /* ItemView.swift */,
 				1A5D14922B5F589500DE9749 /* SliderView.swift */,
 				1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */,
 				1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */,
@@ -106,12 +121,12 @@
 			path = HelperViews;
 			sourceTree = "<group>";
 		};
-		1A5D149F2B5F80BE00DE9749 /* ItemViews */ = {
+		1A760D7F2C0A537600B32A83 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				1A5D148C2B5F564F00DE9749 /* ItemView.swift */,
+				1A760D802C0A53BE00B32A83 /* MarketPlaceViewModel.swift */,
 			);
-			path = ItemViews;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +145,14 @@
 			dependencies = (
 			);
 			name = MarketPlace;
+			packageProductDependencies = (
+				1A760D832C0F4C3500B32A83 /* Auth */,
+				1A760D852C0F4C3500B32A83 /* Functions */,
+				1A760D872C0F4C3500B32A83 /* PostgREST */,
+				1A760D892C0F4C3500B32A83 /* Realtime */,
+				1A760D8B2C0F4C3500B32A83 /* Storage */,
+				1A760D8D2C0F4C3500B32A83 /* Supabase */,
+			);
 			productName = MarketPlace;
 			productReference = 1A5D147B2B5F562C00DE9749 /* MarketPlace.app */;
 			productType = "com.apple.product-type.application";
@@ -158,6 +181,9 @@
 				Base,
 			);
 			mainGroup = 1A5D14722B5F562C00DE9749;
+			packageReferences = (
+				1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			productRefGroup = 1A5D147C2B5F562C00DE9749 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -186,6 +212,7 @@
 			files = (
 				1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */,
 				1A5D147F2B5F562C00DE9749 /* MarketPlaceApp.swift in Sources */,
+				1A760D812C0A53BE00B32A83 /* MarketPlaceViewModel.swift in Sources */,
 				1A5D149C2B5F655F00DE9749 /* ItemDescriptionView.swift in Sources */,
 				1A5D14932B5F589500DE9749 /* SliderView.swift in Sources */,
 				1A5D14952B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift in Sources */,
@@ -396,6 +423,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase-community/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1A760D832C0F4C3500B32A83 /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		1A760D852C0F4C3500B32A83 /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		1A760D872C0F4C3500B32A83 /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		1A760D892C0F4C3500B32A83 /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		1A760D8B2C0F4C3500B32A83 /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+		1A760D8D2C0F4C3500B32A83 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1A760D822C0F4C3500B32A83 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1A5D14732B5F562C00DE9749 /* Project object */;
 }
