@@ -28,7 +28,7 @@ class MarketPlaceViewModel {
         do {
             let results: [MarketPlaceListing] = try await supabase
                 .from("listing")
-                .select()
+                .select("id, title, description, price, patron(id, email_address, first_name, last_name, username)")
                 .execute()
                 .value
             
