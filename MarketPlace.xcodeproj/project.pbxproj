@@ -26,6 +26,7 @@
 		1A760D902C0F4C7100B32A83 /* Supabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A760D8F2C0F4C7100B32A83 /* Supabase.swift */; };
 		1A760D942C0F54E400B32A83 /* SimpleListingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A760D932C0F54E400B32A83 /* SimpleListingView.swift */; };
 		1A760D962C1212E300B32A83 /* MarketPlaceListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A760D952C1212E300B32A83 /* MarketPlaceListing.swift */; };
+		1A760D982C1220EF00B32A83 /* MarketPlaceListingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A760D972C1220EE00B32A83 /* MarketPlaceListingItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		1A760D8F2C0F4C7100B32A83 /* Supabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Supabase.swift; sourceTree = "<group>"; };
 		1A760D932C0F54E400B32A83 /* SimpleListingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListingView.swift; sourceTree = "<group>"; };
 		1A760D952C1212E300B32A83 /* MarketPlaceListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceListing.swift; sourceTree = "<group>"; };
+		1A760D972C1220EE00B32A83 /* MarketPlaceListingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPlaceListingItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				1A5D14922B5F589500DE9749 /* SliderView.swift */,
 				1A5D14942B5F58EE00DE9749 /* MarketplaceScrollHelperView.swift */,
 				1A5D149B2B5F655F00DE9749 /* ItemDescriptionView.swift */,
+				1A760D972C1220EE00B32A83 /* MarketPlaceListingItemView.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A760D982C1220EF00B32A83 /* MarketPlaceListingItemView.swift in Sources */,
 				1A5D149A2B5F617700DE9749 /* Listings.swift in Sources */,
 				1A5D147F2B5F562C00DE9749 /* MarketPlaceApp.swift in Sources */,
 				1A760D812C0A53BE00B32A83 /* MarketPlaceViewModel.swift in Sources */,
