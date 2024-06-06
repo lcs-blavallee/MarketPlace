@@ -11,7 +11,7 @@ import SwiftUI
 struct MarketPlaceApp: App {
     var body: some Scene {
         WindowGroup {
-            MarketPlaceView() // No argument needed
+            SimpleListingView() // No argument needed
         }
     }
 }

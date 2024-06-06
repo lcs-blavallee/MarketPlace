@@ -41,8 +41,8 @@ protocol IdentifiableItem {
     var category: ListingCategory { get set }
 }
 
-struct Listing: Identifiable, Hashable {
-    let id: UUID
+struct Listing: Identifiable, Codable, Hashable {
+    var id: Int?
     var thumbnail: String
     var price: Decimal
     var name: String
@@ -63,7 +63,7 @@ struct Listing: Identifiable, Hashable {
     }
 
     init(thumbnail: String, price: Double, name: String, location: String, distance: Int, images: [String], sellersDescription: String, categories: [ListingCategory]) {
-        self.id = UUID()
+        //self.id = Int
         self.thumbnail = thumbnail
         self.price = Decimal(price)
         self.name = name

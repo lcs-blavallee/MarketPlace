@@ -8,35 +8,54 @@
 import Foundation
 
 @Observable
-class MarkePlaceViewModel {
+class MarketPlaceViewModel {
     
     // MARK: Stored properties
     // The list of to-do items
-    var listings: [Listing]
+    var listings: [MarketPlaceListing]
     
     // MARK: Initializer(s)
-    init(listings: [Listing] = []) {
+    init(listings: [MarketPlaceListing] = []) {
         self.listings = listings
+        Task {
+            try await getListings()
+        }
     }
     
     // MARK: Functions
-    func createListing(withTitle title: String) {
+    func getListings() async throws {
         
-        // Create the new to-do item instance
-        let listing = Listing(thumbnail: <#T##String#>, price: <#T##Double#>, name: <#T##String#>, location: <#T##String#>, distance: <#T##Int#>, images: <#T##[String]#>, sellersDescription: <#T##String#>, categories: <#T##[ListingCategory]#>)
-        
-        // Append to the array
-        listings.append(listing)
-        
-    }
-    
-    func delete(_ listing: Listing) {
-        
-        // Remove the provided to-do item from the array
-        listings.removeAll { currentItem in
-            currentItem.id == listing.id
+        do {
+            let results: [MarketPlaceListing] = try await supabase
+                .from("listing")
+                .select()
+                .execute()
+                .value
+            
+            self.listings = results
+            
+        } catch {
+            debugPrint(error)
         }
         
     }
-    
+//    func createListing(withTitle title: String) {
+//        
+//        // Create the new to-do item instance
+//        let listing = Listing(thumbnail: <#T##String#>, price: <#T##Double#>, name: <#T##String#>, location: <#T##String#>, distance: <#T##Int#>, images: <#T##[String]#>, sellersDescription: <#T##String#>, categories: <#T##[ListingCategory]#>)
+//        
+//        // Append to the array
+//        listings.append(listing)
+//        
+//    }
+//    
+//    func delete(_ listing: Listing) {
+//        
+//        // Remove the provided to-do item from the array
+//        listings.removeAll { currentItem in
+//            currentItem.id == listing.id
+//        }
+//        
+//    }
+//    
 }
