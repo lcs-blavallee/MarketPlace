@@ -14,17 +14,25 @@ struct SimpleListingView: View {
     
     var body: some View {
         NavigationStack {
-            
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(viewModel.listings) { listing in
-                        MarketPlaceListingItemView(listing: listing)
-                    }
+            VStack{
+                Picker("Category", selection: Binding.constant(1)) {
+                    Text("All")
+                    Text("O.E Equipment")
+                    Text("Sports/Fitness")
                 }
-                .padding(.horizontal)
+                .pickerStyle(.segmented)
+                .padding()
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(viewModel.listings) { listing in
+                            MarketPlaceListingItemView(listing: listing)
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                .navigationTitle("Listings")
             }
-            
-            
+            .searchable(text: Binding.constant(""))
         }
     }
     
