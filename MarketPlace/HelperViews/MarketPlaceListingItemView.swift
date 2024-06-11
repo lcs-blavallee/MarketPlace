@@ -40,9 +40,8 @@ struct MarketPlaceListingItemView: View {
 
 }
 
-//#Preview {
-//    
-//    let viewModel = MarketPlaceViewModel()
-//    
-//    return MarketPlaceListingItemView(listing: viewModel.listings.first!)
-//}
+#Preview {
+    
+    
+    return MarketPlaceListingItemView(listing: listingExample)
+}

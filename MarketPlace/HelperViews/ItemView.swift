@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ItemView: View {
     
-    let listing: Listing
+    let listing: MarketPlaceListing
     
     var body: some View {
         NavigationStack {
@@ -17,7 +17,7 @@ struct ItemView: View {
                 VStack {
                     SliderView(listing: listing)
                         .frame(height: 500) // Set a fixed height for the SliderView
-                        .padding(.bottom)
+                        .padding(Edge.Set.bottom)
                     
                     ItemDescriptionView(listing: listing)
                 }
@@ -29,5 +29,5 @@ struct ItemView: View {
 
 
 #Preview {
-    ItemView(listing: listing1)
+    ItemView(listing: listingExample)
 }

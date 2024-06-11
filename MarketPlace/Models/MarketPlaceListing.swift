@@ -7,6 +7,22 @@
 
 import Foundation
 
+struct NewMarketPlaceListing: Identifiable, Codable {
+    var id: Int?
+    var title: String
+    var description: String
+    var price: Double
+    var patronId: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case description
+        case price
+        case patronId = "patron_id"
+    }
+}
+
 struct MarketPlaceListing: Identifiable, Codable {
     var id: Int?
     var title: String
@@ -37,6 +53,7 @@ struct MarketPlaceListing: Identifiable, Codable {
             case username
         }
     }
+    
     
 //    struct Category: Identifiable, Codable {
 //        var id: Int?
@@ -70,3 +87,16 @@ struct MarketPlaceListing: Identifiable, Codable {
 //        }
 //    }
 }
+let listingExample = MarketPlaceListing(
+    id: nil,
+    title: "title",
+    description: "description",
+    price: 10.50,
+    patron: MarketPlaceListing.Patron(
+        id: nil,
+        emailAddress: "example@gmail.com",
+        firstName: "John",
+        lastName: "Doe",
+        username: "JohnDoesExample"
+    )
+)

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ItemDescriptionView: View {
-    let listing: Listing
+    let listing: MarketPlaceListing
 
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(listing.name)
+                Text(listing.title)
                     .font(.title)
                     .bold()
                     .foregroundColor(.black)
@@ -23,35 +23,29 @@ struct ItemDescriptionView: View {
                     .foregroundColor(.black)
                     .bold()
                     .padding(.bottom, 5)
-
-                Text("Listed \(listing.timeListedAgo)")
-                    .foregroundColor(.gray)
+//
+//                Text("Listed \(listing.timeListedAgo)")
+//                    .foregroundColor(.gray)
 
                 Text("Seller's Description")
                     .foregroundColor(.black)
                     .padding(.top, 30)
                     .bold()
 
-                Text(listing.sellersDescription)
+                Text(listing.description)
             }
             .padding(.leading)
             Spacer()
         }
     }
 
-    private func priceString(from price: Decimal) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = Locale.current // or a specific locale if your app will support multiple regions
-        formatter.alwaysShowsDecimalSeparator = false
-        formatter.minimumFractionDigits = 0
-        formatter.maximumFractionDigits = 2 // Show up to 2 decimal places only if there are cents
-        return formatter.string(from: price as NSDecimalNumber) ?? "$\(price)"
+    private func priceString(from price: Double) -> String {
+        return price.formatted(.currency(code: "CAD").presentation(.narrow))
     }
 
 }
 
 
 #Preview {
-    ItemDescriptionView(listing: listing1)
+    ItemDescriptionView(listing: listingExample)
     }

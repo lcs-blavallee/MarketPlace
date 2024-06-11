@@ -9,17 +9,17 @@ import SwiftUI
 
 struct SliderView: View {
     
-    let listing: Listing
+    let listing: MarketPlaceListing
     
     var body: some View {
         VStack {
             TabView {
-                ForEach(listing.images, id: \.self) { imageName in
-                    Image(imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .ignoresSafeArea()
-                }
+//                ForEach(listing.images, id: \.self) { imageName in
+//                    Image(imageName)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .ignoresSafeArea()
+//                }
             }
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
@@ -29,5 +29,5 @@ struct SliderView: View {
 }
 
 #Preview {
-    SliderView(listing: listing1)
+    SliderView(listing: listingExample)
 }
