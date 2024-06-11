@@ -29,6 +29,8 @@ struct MarketPlaceListing: Identifiable, Codable {
     var description: String
     var price: Double
     var patron: Patron
+    var images: [Image]
+    var categories: [Category]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -36,6 +38,8 @@ struct MarketPlaceListing: Identifiable, Codable {
         case description
         case price
         case patron
+        case images
+        case categories
     }
         
     struct Patron: Identifiable, Codable {
@@ -54,39 +58,39 @@ struct MarketPlaceListing: Identifiable, Codable {
         }
     }
     
+    struct Image: Identifiable, Codable {
+        var id: Int?
+        var filename: String
+        var listingId: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case filename
+            case listingId = "listing_id"
+        }
+    }
     
-//    struct Category: Identifiable, Codable {
-//        var id: Int?
-//        var name: String
-//        
-//        enum CodingKeys: String, CodingKey {
-//            case id
-//            case name
-//        }
-//    }
+    struct Category: Identifiable, Codable {
+        var id: Int?
+        var name: String
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case name
+        }
+    }
     
-//    struct ListingCategory: Identifiable, Codable {
-//        var listingId: Int?
-//        var categoryId: Int?
-//
-//        enum CodingKeys: String, CodingKey {
-//            case listingId = "listing_id"
-//            case categoryOd = "category_id"
-//        }
-//    }
-//
-//    struct Image: Identifiable, Codable {
-//        var id: Int?
-//        var filename: String
-//        var listingId: Int?
-//
-//        enum CodingKeys: String, CodingKey {
-//            case id
-//            case filename
-//            case listingId = "listing_id"
-//        }
-//    }
+    struct ListingCategory: Codable {
+        var listingId: Int?
+        var categoryId: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case listingId = "listing_id"
+            case categoryId = "category_id"
+        }
+    }
 }
+
 let listingExample = MarketPlaceListing(
     id: nil,
     title: "title",
@@ -98,5 +102,8 @@ let listingExample = MarketPlaceListing(
         firstName: "John",
         lastName: "Doe",
         username: "JohnDoesExample"
-    )
+    ),
+    images: [], // Provide an empty array for images
+    categories: [] // Provide an empty array for categories
 )
+

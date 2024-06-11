@@ -12,14 +12,9 @@ struct MarketPlaceListingItemView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            RoundedRectangle(cornerRadius: 10.0)
+            SliderView(listing: listing)
                 .frame(width: 150, height: 200)
-//            Image(listing.thumbnail)
-//                .resizable()
-//                .scaledToFill()
-//                .frame(width: 150, height: 200)
-//                .clipped()
-//                .cornerRadius(10)
+                .cornerRadius(10)
             
             Text(priceString(from: listing.price)) // Correctly calling the function
                 .foregroundColor(.black)
@@ -29,7 +24,6 @@ struct MarketPlaceListingItemView: View {
             Text(listing.title)
                 .foregroundColor(.black)
                 .lineLimit(1)
-
         }
         .padding([.leading, .trailing, .top])
     }
@@ -37,11 +31,8 @@ struct MarketPlaceListingItemView: View {
     private func priceString(from price: Double) -> String {
         return price.formatted(.currency(code: "CAD").presentation(.narrow))
     }
-
 }
 
 #Preview {
-    
-    
-    return MarketPlaceListingItemView(listing: listingExample)
+    MarketPlaceListingItemView(listing: listingExample)
 }

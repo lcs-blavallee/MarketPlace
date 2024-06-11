@@ -11,18 +11,32 @@ struct SliderView: View {
     
     let listing: MarketPlaceListing
     
+    @State private var images: [MarketPlaceListing.Image] = []
+    
     var body: some View {
         VStack {
-            TabView {
-//                ForEach(listing.images, id: \.self) { imageName in
-//                    Image(imageName)
-//                        .resizable()
-//                        .aspectRatio(contentMode: .fit)
-//                        .ignoresSafeArea()
-//                }
+            if images.isEmpty {
+                Text("No images available")
+            } else {
+                TabView {
+                    ForEach(images) { image in
+                        // Assuming that image.filename is a valid URL or image name in the bundle
+                        if let uiImage = UIImage(named: image.filename) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        } else {
+                            Text("Image not found")
+                        }
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
+                .indexViewStyle(.page(backgroundDisplayMode: .always))
             }
-            .tabViewStyle(PageTabViewStyle())
-            .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
+        }
+        .onAppear {
+            // Load the images from the listing
+            self.images = listing.images
         }
         .ignoresSafeArea()
     }
@@ -31,3 +45,5 @@ struct SliderView: View {
 #Preview {
     SliderView(listing: listingExample)
 }
+
+

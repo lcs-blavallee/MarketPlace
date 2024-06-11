@@ -73,45 +73,45 @@ class MarketPlaceViewModel {
         }
     }
     
-//    private func uploadImage(_ image: ListingImage?) async throws -> String? {
-//        
-//        // Only continue past this point if an image was provided.
-//        // If an image was provided, obtain the raw image data.
-//        guard let imageData = image?.data else {
-//            return nil
-//        }
-//        
-//        // Generate a unique file path for the provided image
-//        let filePath = "\(UUID().uuidString).jpeg"
-//        
-//        // Attempt to upload the raw image data to the bucket at Supabase
-//        try await supabase.storage
-//            .from("todos_images")
-//            .upload(
-//                path: filePath,
-//                file: imageData,
-//                options: FileOptions(contentType: "image/jpeg")
-//            )
-//        
-//        return filePath
-//    }
-//    func downloadTodoItemImage(fromPath path: String) async throws -> ListingImage? {
-//        
-//        // Attempt to download an image from the provided path
-//        do {
-//            let data = try await supabase
-//                .storage
-//                .from("image")
-//                .download(path: path)
-//            
-//            return ListingImage(rawImageData: data)
-//            
-//        } catch {
-//            debugPrint(error)
-//        }
-//        
-//        // If we landed here, something went wrong, so return nil
-//        return nil
-//        
-//    }
+    private func uploadImage(_ image: ListingImage?) async throws -> String? {
+        
+        // Only continue past this point if an image was provided.
+        // If an image was provided, obtain the raw image data.
+        guard let imageData = image?.data else {
+            return nil
+        }
+        
+        // Generate a unique file path for the provided image
+        let filePath = "\(UUID().uuidString).jpeg"
+        
+        // Attempt to upload the raw image data to the bucket at Supabase
+        try await supabase.storage
+            .from("todos_images")
+            .upload(
+                path: filePath,
+                file: imageData,
+                options: FileOptions(contentType: "image/jpeg")
+            )
+        
+        return filePath
+    }
+    func downloadTodoItemImage(fromPath path: String) async throws -> ListingImage? {
+        
+        // Attempt to download an image from the provided path
+        do {
+            let data = try await supabase
+                .storage
+                .from("image")
+                .download(path: path)
+            
+            return ListingImage(rawImageData: data)
+            
+        } catch {
+            debugPrint(error)
+        }
+        
+        // If we landed here, something went wrong, so return nil
+        return nil
+        
+    }
 }
