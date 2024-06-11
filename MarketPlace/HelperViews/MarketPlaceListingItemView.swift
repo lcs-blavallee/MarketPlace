@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MarketPlaceListingItemView: View {
     let listing: MarketPlaceListing
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             if let firstImage = listing.images.first,
@@ -34,14 +34,14 @@ struct MarketPlaceListingItemView: View {
                 .foregroundColor(.black)
                 .bold()
                 .lineLimit(1)
-
+            
             Text(listing.title)
                 .foregroundColor(.black)
                 .lineLimit(1)
         }
         .padding([.leading, .trailing, .top])
     }
-
+    
     private func priceString(from price: Double) -> String {
         return price.formatted(.currency(code: "CAD").presentation(.narrow))
     }

@@ -88,7 +88,7 @@ struct AddListingView: View {
                 }
             }
             // This block of code is invoked whenever the selection from the picker changes
-            .onChange(of: selectionResult) { 
+            .onChange(of: selectionResult) {
                 // When the selection result is not nil...
                 if let imageSelection = selectionResult {
                     // ... transfer the data from the selection result into
