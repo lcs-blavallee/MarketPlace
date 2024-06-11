@@ -34,10 +34,10 @@ struct SliderView: View {
                 .indexViewStyle(.page(backgroundDisplayMode: .always))
             }
         }
-        .onAppear {
-            // Load the images from the listing
-            self.images = listing.images
-        }
+//        .onAppear {
+//            // Load the images from the listing
+//            self.images = listing.images
+//        }
         .ignoresSafeArea()
     }
 }
