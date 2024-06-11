@@ -12,9 +12,23 @@ struct MarketPlaceListingItemView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SliderView(listing: listing)
-                .frame(width: 150, height: 200)
-                .cornerRadius(10)
+            if let firstImage = listing.images.first,
+               let uiImage = UIImage(named: firstImage.filename) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 150, height: 200)
+                    .clipped()
+                    .cornerRadius(10)
+            } else {
+                RoundedRectangle(cornerRadius: 10.0)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 150, height: 200)
+                    .overlay(
+                        Text("No Image")
+                            .foregroundColor(.white)
+                    )
+            }
             
             Text(priceString(from: listing.price)) // Correctly calling the function
                 .foregroundColor(.black)

@@ -13,6 +13,17 @@ struct ItemDescriptionView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
+                
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10.0)
+                        .fill(Color.gray.opacity(0.3))
+                        .frame(width: 300, height: 200)
+
+                    SliderView(listing: listing)
+                        .frame(width: 300, height: 200) 
+                        .cornerRadius(10)
+                }
+                
                 Text(listing.title)
                     .font(.title)
                     .bold()
@@ -23,9 +34,6 @@ struct ItemDescriptionView: View {
                     .foregroundColor(.black)
                     .bold()
                     .padding(.bottom, 5)
-//
-//                Text("Listed \(listing.timeListedAgo)")
-//                    .foregroundColor(.gray)
 
                 Text("Seller's Description")
                     .foregroundColor(.black)
@@ -42,10 +50,8 @@ struct ItemDescriptionView: View {
     private func priceString(from price: Double) -> String {
         return price.formatted(.currency(code: "CAD").presentation(.narrow))
     }
-
 }
-
 
 #Preview {
     ItemDescriptionView(listing: listingExample)
-    }
+}
