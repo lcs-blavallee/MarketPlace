@@ -12,6 +12,8 @@ struct SimpleListingView: View {
     @State private var viewModel: MarketPlaceViewModel = MarketPlaceViewModel()
     private var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     
+    @State var presentingNewItemSheet = false
+    
     var body: some View {
         NavigationStack {
             VStack{
@@ -31,6 +33,22 @@ struct SimpleListingView: View {
                     .padding(.horizontal)
                 }
                 .navigationTitle("Listings")
+                .sheet(isPresented: $presentingNewItemSheet) {
+                    Text("Hello, world!")
+                }
+                // Add a tool bar to the top of the interface
+                // NOTE: For a toolbar to appear, it must be
+                //       inside a NavigationView or NavigationStack.
+                .toolbar {
+                    // Add a button to trigger showing the sheet
+                    ToolbarItem(placement: .automatic) {
+                        Button {
+                            presentingNewItemSheet = true
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                    }
+                }
             }
             .searchable(text: Binding.constant(""))
         }

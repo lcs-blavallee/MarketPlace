@@ -75,6 +75,7 @@ struct AddListingView: View {
                     }
                 }
                 .frame(height: 100)
+                
             }
             .padding(20)
             .toolbar {
@@ -92,7 +93,7 @@ struct AddListingView: View {
                 // When the selection result is not nil...
                 if let imageSelection = selectionResult {
                     // ... transfer the data from the selection result into
-                    // an actual instance of TodoItemImage
+                    // an actual instance of ListingImage
                     loadTransferable(from: imageSelection)
                 }
             }

@@ -29,8 +29,8 @@ struct MarketPlaceListing: Identifiable, Codable {
     var description: String
     var price: Double
     var patron: Patron
-//    var images: [Image]
-//    var categories: [Category]
+    var images: [Image]
+    var categories: [Category]
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -38,8 +38,8 @@ struct MarketPlaceListing: Identifiable, Codable {
         case description
         case price
         case patron
-//        case images
-//        case categories
+        case images
+        case categories
     }
         
     struct Patron: Identifiable, Codable {
@@ -107,8 +107,8 @@ let listingExample = MarketPlaceListing(
         firstName: "John",
         lastName: "Doe",
         username: "JohnDoesExample"
-    )
-//    images: [], // Provide an empty array for images
-//    categories: [] // Provide an empty array for categories
+    ),
+    images: [], // Provide an empty array for images
+    categories: [] // Provide an empty array for categories
 )
 

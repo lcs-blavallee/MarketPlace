@@ -40,8 +40,14 @@ class MarketPlaceViewModel {
         }
         
     }
+    
     func createListing(withTitle title: String, withPrice price: Double, withDescription description: String, andImage providedImage: ListingImage? = nil) {
         Task {
+            
+            // Upload an image.
+            // If one was not provided to this function, then this
+            // function call will return a nil value.
+            let imageURL = try await uploadImage(providedImage)
             
             // Create the new localListing instance
             let localListing = NewMarketPlaceListing(
@@ -86,7 +92,7 @@ class MarketPlaceViewModel {
         
         // Attempt to upload the raw image data to the bucket at Supabase
         try await supabase.storage
-            .from("todos_images")
+            .from("listings_images")
             .upload(
                 path: filePath,
                 file: imageData,
@@ -95,6 +101,7 @@ class MarketPlaceViewModel {
         
         return filePath
     }
+    
     func downloadTodoItemImage(fromPath path: String) async throws -> ListingImage? {
         
         // Attempt to download an image from the provided path
