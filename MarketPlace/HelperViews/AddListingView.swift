@@ -32,6 +32,9 @@ struct AddListingView: View {
                 HStack {
                     VStack{
                         TextField("Title", text: $newListingTitle)
+                            .onSubmit {
+//                                viewModel.update()
+                            }
                         TextField("Price", text: $newListingPrice)  // Keep as String
                             .keyboardType(.decimalPad)  // Optional: Ensure the keyboard shows numeric pad
                         TextField("Description (recommended)", text: $newListingDescription)
@@ -39,6 +42,7 @@ struct AddListingView: View {
                     Button("ADD") {
                         // Convert price to Double before passing it to the view model
                         if let price = Double(newListingPrice) {
+                            print("Creating listing with title: \(newListingTitle), price: \(price), description: \(newListingDescription)")
                             viewModel.createListing(withTitle: newListingTitle, withPrice: price, withDescription: newListingDescription, andImage: newItemImage)
                         } else {
                             // Handle the error appropriately, e.g., show an alert

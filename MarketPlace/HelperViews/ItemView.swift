@@ -10,7 +10,7 @@ import SwiftUI
 struct ItemView: View {
     
     let listing: MarketPlaceListing
-    
+        
     var body: some View {
         NavigationStack {
             ScrollView {

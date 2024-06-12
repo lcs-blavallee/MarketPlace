@@ -34,7 +34,9 @@ struct SimpleListingView: View {
                 }
                 .navigationTitle("Listings")
                 .sheet(isPresented: $presentingNewItemSheet) {
-                    Text("Hello, world!")
+                    AddListingView(showSheet: $presentingNewItemSheet)
+                        .presentationDetents([.medium])
+                        .environment(viewModel)
                 }
                 // Add a tool bar to the top of the interface
                 // NOTE: For a toolbar to appear, it must be
@@ -53,6 +55,7 @@ struct SimpleListingView: View {
             .searchable(text: Binding.constant(""))
         }
     }
+        
     
 }
 
