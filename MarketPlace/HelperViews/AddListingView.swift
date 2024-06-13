@@ -18,7 +18,7 @@ struct AddListingView: View {
     @State var newItemImage: ListingImage?
     
     // Access the view model through the environment
-    @Environment(MarketPlaceViewModel.self) var viewModel
+    @Environment var viewModel: MarketPlaceViewModel
     
     // Binding to control whether this view is visible
     @Binding var showSheet: Bool
@@ -33,13 +33,14 @@ struct AddListingView: View {
                     VStack{
                         TextField("Title", text: $newListingTitle)
                             .onSubmit {
-//                                viewModel.update()
+                                //viewModel.update()
                             }
                         TextField("Price", text: $newListingPrice)  // Keep as String
                             .keyboardType(.decimalPad)  // Optional: Ensure the keyboard shows numeric pad
                         TextField("Description (recommended)", text: $newListingDescription)
                     }
                     Button("ADD") {
+                        print("Add button pressed")
                         // Convert price to Double before passing it to the view model
                         if let price = Double(newListingPrice) {
                             print("Creating listing with title: \(newListingTitle), price: \(price), description: \(newListingDescription)")
@@ -93,7 +94,7 @@ struct AddListingView: View {
                 }
             }
             // This block of code is invoked whenever the selection from the picker changes
-            .onChange(of: selectionResult) {
+            .onChange(of: selectionResult) { _ in
                 // When the selection result is not nil...
                 if let imageSelection = selectionResult {
                     // ... transfer the data from the selection result into
@@ -121,4 +122,5 @@ struct AddListingView: View {
 
 #Preview {
     AddListingView(showSheet: .constant(true))
+        .environment(MarketPlaceViewModel())
 }
